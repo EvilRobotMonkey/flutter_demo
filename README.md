@@ -16,7 +16,7 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 ##项目实现中遇到的问题
-+ ####使用Flutter运行Android模拟器的时候报错：
++ 使用Flutter运行Android模拟器的时候报错：
 ```
 FAILURE: Build failed with an exception.                                
                                                                         
@@ -60,7 +60,7 @@ BUILD FAILED in 1m 48s
 修改文件：flutter/packages/flutter_tools/gradle/flutter.gradle
 `private static final String MAVEN_REPO = "http://download.flutter.io";`
 
-+ ####找不见资源文件 
++ 找不见资源文件 
 
 需要在 pubspec.yaml 文件中声明 精确到文件夹
 ```
