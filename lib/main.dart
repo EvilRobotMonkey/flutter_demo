@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/routers/404.dart';
 import 'package:flutterapp/routers/application.dart';
 import 'package:flutterapp/routers/routers.dart';
 import 'package:flutterapp/utils/Device.dart';
@@ -31,6 +32,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    throw UnimplementedError();
+    return new MaterialApp(
+      title: 'Welcome to Flutter',
+      home: WidgetNotFound());
   }
 }

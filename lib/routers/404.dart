@@ -4,6 +4,10 @@ import 'package:flutterapp/widgets/app_bar.dart';
 import 'package:flutterapp/widgets/state_layout.dart';
 
 class WidgetNotFound extends StatelessWidget {
+  static void onpress() {
+    print("hello world");
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -11,6 +15,7 @@ class WidgetNotFound extends StatelessWidget {
     return const Scaffold(
       appBar: MyAppBar(
         centerTitle: '页面不存在',
+        onPressed: onpress,
       ),
       body: StateLayout(
         type: StateType.account,
