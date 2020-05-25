@@ -21,7 +21,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.title: '',
       this.centerTitle: '',
       this.backImg: 'assets/images/ic_back_black.png',
-      this.actionName:'',
+      this.actionName: '',
       this.onPressed,
       this.isBack: true})
       : super(key: key);
@@ -103,6 +103,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
           )
         : Gaps.empty;
+
     var titleWidget = Semantics(
       namesRoute: true,
       header: true,

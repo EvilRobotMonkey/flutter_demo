@@ -15,6 +15,7 @@ class WidgetNotFound extends StatelessWidget {
     return const Scaffold(
       appBar: MyAppBar(
         centerTitle: '页面不存在',
+        actionName: "取消",
         onPressed: onpress,
       ),
       body: StateLayout(
