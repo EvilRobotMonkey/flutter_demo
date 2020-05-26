@@ -1,11 +1,19 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/routers/404.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutterapp/provider/theme_provider.dart';
 import 'package:flutterapp/routers/application.dart';
 import 'package:flutterapp/routers/routers.dart';
+import 'package:flutterapp/temp/touch_demo.dart';
 import 'package:flutterapp/utils/Device.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterapp/utils/log_utils.dart';
+import 'package:flutterapp/utils/theme_utils.dart';
+import 'package:flutterapp/widgets/app_bar.dart';
+import 'package:oktoast/oktoast.dart';
+import 'package:provider/provider.dart';
+
+import 'home/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,9 +39,41 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return new MaterialApp(
-      title: 'Welcome to Flutter',
-      home: WidgetNotFound());
+    return OKToast(
+      child: ChangeNotifierProvider<ThemeProvider>(
+          create: (_) => ThemeProvider(),
+          child: Consumer<ThemeProvider>(builder: (_, provider, __) {
+            return MaterialApp(
+              title: "flutter deer",
+//              showPerformanceOverlay: false, //显示性能标签
+              debugShowCheckedModeBanner: false,
+              // 去除右上角debug的标签
+//              checkerboardRasterCacheImages: true,
+//              showSemanticsDebugger: true, // 显示语义视图
+//              checkerboardOffscreenLayers: false, // 检查离屏渲染
+              theme: provider.getTheme(),
+              darkTheme: provider.getTheme(isDarkMode: false),
+              themeMode: provider.getThemeMode(),
+              home: home ??
+                  TouchMe(
+                    products: <String>['Eggs', 'Flour',"one"],
+                  ),
+
+              onGenerateRoute: Application.router.generator,
+              localizationsDelegates: const [
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: const [Locale('zh', 'CH'), Locale('en', 'US')],
+              builder: (context, child) {
+                return MediaQuery(
+                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                  child: child,
+                );
+              },
+            );
+          })),
+    );
   }
 }

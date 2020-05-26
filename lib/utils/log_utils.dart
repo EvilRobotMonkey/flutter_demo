@@ -1,6 +1,5 @@
 
 import 'dart:convert' as convert;
-
 import 'package:common_utils/common_utils.dart';
 import 'package:flutterapp/common/common.dart';
 
@@ -10,7 +9,7 @@ class Log {
   static const String tag = 'DEER-LOG';
   
   static init() {
-    LogUtil.debuggable = !Constant.inProduction;
+//    LogUtil.debuggable = !Constant.inProduction;
   }
 
   static d(String msg, {tag: tag}) {
