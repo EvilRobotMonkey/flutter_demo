@@ -36,9 +36,12 @@ dependencies:
   oktoast: ^2.3.2
   # 状态管理 https://github.com/rrousselGit/provider
   provider: ^4.1.0
-
   # Flutter 常用工具类库 https://github.com/Sky24n/flustars
   flustars: ^0.3.2
+  # https://github.com/ReactiveX/rxdart
+  rxdart: ^0.24.0
+  # Flutter 轮播图 https://github.com/best-flutter/flutter_swiper
+  flutter_swiper: ^1.1.6
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -11,6 +11,17 @@ class ThemeProvider extends ChangeNotifier {
     ThemeMode.light: 'Light',
     ThemeMode.system: 'System'
   };
+  int count = 0;
+
+  void plus() {
+    count++;
+    notifyListeners();
+  }
+
+  void subtract() {
+    count--;
+    notifyListeners();
+  }
 
   void syncTheme() {
     var theme = SpUtil.getString(Constant.theme);

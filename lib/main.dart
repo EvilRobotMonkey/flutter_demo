@@ -52,13 +52,9 @@ class MyApp extends StatelessWidget {
 //              showSemanticsDebugger: true, // 显示语义视图
 //              checkerboardOffscreenLayers: false, // 检查离屏渲染
               theme: provider.getTheme(),
-              darkTheme: provider.getTheme(isDarkMode: false),
+              darkTheme: provider.getTheme(isDarkMode: true),
               themeMode: provider.getThemeMode(),
-              home: home ??
-                  TouchMe(
-                    products: <String>['Eggs', 'Flour',"one"],
-                  ),
-
+              home: home ?? SplashPage(),
               onGenerateRoute: Application.router.generator,
               localizationsDelegates: const [
                 GlobalMaterialLocalizations.delegate,

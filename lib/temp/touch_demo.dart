@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/provider/theme_provider.dart';
 import 'package:flutterapp/temp/product_item.dart';
 import 'package:flutterapp/widgets/app_bar.dart';
+import 'package:provider/provider.dart';
 
 class TouchMe extends StatefulWidget {
   final List<String> products;
@@ -22,9 +24,21 @@ class _TouchCount extends State<TouchMe> {
       // build, below, which updates the visual appearance of the app.
       if (inCart) {
         _shoppingCart.add(product);
-      } else
+      } else {
         _shoppingCart.remove(product);
+      }
     });
+  }
+
+  void pressed() {
+    Provider.of<ThemeProvider>(context, listen: false).setTheme(ThemeMode.dark);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Provider.of<ThemeProvider>(context, listen: false).syncTheme();
   }
 
   @override
@@ -32,6 +46,8 @@ class _TouchCount extends State<TouchMe> {
     return new Scaffold(
       appBar: new MyAppBar(
         title: 'Shopping List',
+        actionName: '切换',
+        onPressed: pressed,
       ),
       body: new ListView(
           padding: new EdgeInsets.symmetric(vertical: 8.0),
