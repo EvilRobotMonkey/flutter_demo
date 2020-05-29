@@ -114,7 +114,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _goLogin() {
-    print("点击了");
     NavigatorUtils.push(context, LoginRouter.loginPage, replace: false);
   }
 }

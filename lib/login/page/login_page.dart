@@ -1,11 +1,11 @@
-
-
 import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/common/common.dart';
+import 'package:flutterapp/res/gaps.dart';
 import 'package:flutterapp/res/styles.dart';
 import 'package:flutterapp/utils/utils.dart';
+import 'package:flutterapp/widgets/MyTextField.dart';
 import 'package:flutterapp/widgets/app_bar.dart';
 import 'package:flutterapp/widgets/my_scroll_view.dart';
 
@@ -20,8 +20,8 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController _passWordController = TextEditingController();
 
   //创建焦点对象 来控制输入发键盘的显示和隐藏
-  FocusNode _nodeText_1 = FocusNode();
-  FocusNode _nodeText_2 = FocusNode();
+  final FocusNode _nodeText_1 = FocusNode();
+  final FocusNode _nodeText_2 = FocusNode();
 
   bool _clickAble = false;
 
@@ -79,11 +79,21 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-}
 
-get _buildBody => [
-  const Text(
-    '密码登录',
-    style: TextStyles.textBold26,
-  ),
-];
+  get _buildBody => [
+        const Text(
+          '密码登录',
+          style: TextStyles.textBold26,
+        ),
+        Gaps.vGap16,
+        MyTextField(
+          key: const Key('phone'),
+          focusNode: _nodeText_1,
+          controller: _nameController,
+          maxLength: 11,
+          keyboardType: TextInputType.phone,
+          autoFocus: true,
+          hintText: '请输入账号',
+        )
+      ];
+}
