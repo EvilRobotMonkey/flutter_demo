@@ -4,12 +4,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutterapp/provider/theme_provider.dart';
 import 'package:flutterapp/routers/application.dart';
 import 'package:flutterapp/routers/routers.dart';
-import 'package:flutterapp/temp/touch_demo.dart';
 import 'package:flutterapp/utils/Device.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterapp/utils/log_utils.dart';
-import 'package:flutterapp/utils/theme_utils.dart';
-import 'package:flutterapp/widgets/app_bar.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
@@ -69,7 +66,9 @@ class MyApp extends StatelessWidget {
                 );
               },
             );
-          })),
+          },
+           //还有个 child 熟悉 在状态改变 child 属性下 页面不会走build方法
+          )),
     );
   }
 }
