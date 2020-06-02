@@ -42,12 +42,12 @@ class MyScrollView extends StatelessWidget {
     );
     if (defaultTargetPlatform == TargetPlatform.iOS && keyboardConfig != null) {
       if (padding != null) {
-        contents =Padding(
+        contents = Padding(
           padding: padding,
           child: contents,
         );
       }
-      contents =KeyboardActions(
+      contents = KeyboardActions(
           isDialog: bottomButton != null,
           overscroll: overScroll,
           config: keyboardConfig,
@@ -61,7 +61,7 @@ class MyScrollView extends StatelessWidget {
       );
     }
     if (bottomButton != null) {
-      Column(
+      contents = Column(
         children: <Widget>[
           Expanded(
             child: contents,

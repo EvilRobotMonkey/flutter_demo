@@ -6,6 +6,7 @@ import 'package:flutterapp/login/login_router.dart';
 import 'package:flutterapp/res/gaps.dart';
 import 'package:flutterapp/res/styles.dart';
 import 'package:flutterapp/routers/fluro_navigator.dart';
+import 'package:flutterapp/store/store_router.dart';
 import 'package:flutterapp/utils/utils.dart';
 import 'package:flutterapp/widgets/MyTextField.dart';
 import 'package:flutterapp/widgets/app_bar.dart';
@@ -62,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
    */
   void _login() {
     SpUtil.putString(Constant.phone, _nameController.text);
+    NavigatorUtils.push(context, StoreRouter.auditPage);
   }
 
   @override

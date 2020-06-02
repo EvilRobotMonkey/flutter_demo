@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutterapp/login/login_router.dart';
 import 'package:flutterapp/routers/404.dart';
 import 'package:flutterapp/routers/router_init.dart';
+import 'package:flutterapp/store/store_router.dart';
 
 class Routes {
   static String home = '/home';
@@ -25,6 +26,7 @@ class Routes {
     }));
     _listRouter.clear();
     _listRouter.add(LoginRouter());
+    _listRouter.add(StoreRouter());
     _listRouter.forEach((element) {
       element.initRouter(router);
     });
