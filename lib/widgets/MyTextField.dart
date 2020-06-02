@@ -71,6 +71,7 @@ class _MyTextFiedldState extends State<MyTextField> {
         _currentSecond = _second;
         _clickable = false;
       });
+
       _subscription = Stream.periodic(Duration(seconds: 1), (i) => i)
           .take(_second)
           .listen((i) {

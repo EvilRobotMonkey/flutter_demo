@@ -9,19 +9,13 @@ class BlocProvider<T extends BlocBase> extends StatefulWidget {
   final Widget child;
   final List<T> blocs;
 
-
-  BlocProvider({
-    Key key,
-    @required this.child,
-    @required this.blocs
-  }) : super(key: key);
+  BlocProvider({Key key, @required this.child, @required this.blocs})
+      : super(key: key);
 
   static List<T> of<T extends BlocBase>(BuildContext context) {
     var type = _typeOf<_BlocProviderInherited<T>>();
     _BlocProviderInherited<T> provider =
-        context
-            .ancestorInheritedElementForWidgetOfExactType(type)
-            .widget;
+        context.ancestorInheritedElementForWidgetOfExactType(type).widget;
     return provider.blocs;
   }
 }
@@ -37,8 +31,8 @@ class BlocProviderState<T extends BlocBase> extends State<BlocProvider<T>> {
   @override
   Widget build(BuildContext context) {
     return _BlocProviderInherited<T>(
-    @required child: widget.child,
-    @required blocs: widget.blocs,
+      child: widget.child,
+      blocs: widget.blocs,
     );
   }
 }

@@ -42,19 +42,19 @@ class MyScrollView extends StatelessWidget {
     );
     if (defaultTargetPlatform == TargetPlatform.iOS && keyboardConfig != null) {
       if (padding != null) {
-        Padding(
+        contents =Padding(
           padding: padding,
           child: contents,
         );
       }
-      KeyboardActions(
+      contents =KeyboardActions(
           isDialog: bottomButton != null,
           overscroll: overScroll,
           config: keyboardConfig,
           tapOutsideToDismiss: tapOutsideToDismiss,
           child: contents);
     } else {
-      SingleChildScrollView(
+      contents = SingleChildScrollView(
         padding: padding,
         physics: physics,
         child: contents,

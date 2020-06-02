@@ -1,7 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/temp/provider_countbloc.dart';
+import 'package:flutterapp/temp/counter_bloc.dart';
 import 'package:provider/provider.dart';
 
 typedef void CartChangedCallback(String product, bool inCart);
@@ -34,8 +34,8 @@ class ShoppingListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider<CountBloc>(
-      dispose: (context, value) => value.dispose(),
+    return Provider<CounterBloc>(
+      dispose: (context, value) => value.dispost(),
       child: new ListTile(
       onTap: () {
         onCartChanged(product, !inCart);

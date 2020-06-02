@@ -39,35 +39,39 @@ class MyApp extends StatelessWidget {
     return OKToast(
       child: ChangeNotifierProvider<ThemeProvider>(
           create: (_) => ThemeProvider(),
-          child: Consumer<ThemeProvider>(builder: (_, provider, __) {
-            return MaterialApp(
-              title: "flutter deer",
+          child: Consumer<ThemeProvider>(
+            builder: (_, provider, __) {
+              return MaterialApp(
+                title: "flutter deer",
 //              showPerformanceOverlay: false, //显示性能标签
-              debugShowCheckedModeBanner: false,
-              // 去除右上角debug的标签
+                debugShowCheckedModeBanner: false,
+                // 去除右上角debug的标签
 //              checkerboardRasterCacheImages: true,
 //              showSemanticsDebugger: true, // 显示语义视图
 //              checkerboardOffscreenLayers: false, // 检查离屏渲染
-              theme: provider.getTheme(),
-              darkTheme: provider.getTheme(isDarkMode: true),
-              themeMode: provider.getThemeMode(),
-              home: home ?? SplashPage(),
-              onGenerateRoute: Application.router.generator,
-              localizationsDelegates: const [
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: const [Locale('zh', 'CH'), Locale('en', 'US')],
-              builder: (context, child) {
-                return MediaQuery(
-                  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
-                  child: child,
-                );
-              },
-            );
-          },
-           //还有个 child 熟悉 在状态改变 child 属性下 页面不会走build方法
+                theme: provider.getTheme(),
+                darkTheme: provider.getTheme(isDarkMode: true),
+                themeMode: provider.getThemeMode(),
+                home: home ?? SplashPage(),
+                onGenerateRoute: Application.router.generator,
+                localizationsDelegates: const [
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: const [
+                  Locale('zh', 'CH'),
+                  Locale('en', 'US')
+                ],
+                builder: (context, child) {
+                  return MediaQuery(
+                    data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+                    child: child,
+                  );
+                },
+              );
+            },
+            //还有个 child 熟悉 在状态改变 child 属性下 页面不会走build方法
           )),
     );
   }

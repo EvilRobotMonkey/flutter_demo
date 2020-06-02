@@ -2,11 +2,14 @@ import 'package:flustars/flustars.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/common/common.dart';
+import 'package:flutterapp/login/login_router.dart';
 import 'package:flutterapp/res/gaps.dart';
 import 'package:flutterapp/res/styles.dart';
+import 'package:flutterapp/routers/fluro_navigator.dart';
 import 'package:flutterapp/utils/utils.dart';
 import 'package:flutterapp/widgets/MyTextField.dart';
 import 'package:flutterapp/widgets/app_bar.dart';
+import 'package:flutterapp/widgets/my_button.dart';
 import 'package:flutterapp/widgets/my_scroll_view.dart';
 
 class LoginPage extends StatefulWidget {
@@ -92,8 +95,45 @@ class _LoginPageState extends State<LoginPage> {
           controller: _nameController,
           maxLength: 11,
           keyboardType: TextInputType.phone,
-          autoFocus: true,
           hintText: '请输入账号',
+        ),
+        MyTextField(
+          key: const Key('password'),
+          keyName: 'password',
+          focusNode: _nodeText_2,
+          isInputPwd: true,
+          controller: _passWordController,
+          maxLength: 16,
+          keyboardType: TextInputType.visiblePassword,
+          hintText: '请输入密码',
+        ),
+        Gaps.vGap24,
+        MyButton(
+          key: const Key('login'),
+          onPressed: _clickAble ? _login : null,
+          text: '登录',
+        ),
+        Container(
+          height: 40.0,
+          alignment: Alignment.centerRight,
+          child: GestureDetector(
+            child: Text(
+              '忘记密码',
+              style: Theme.of(context).textTheme.subtitle2,
+            ),
+            onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
+          ),
+        ),
+        Gaps.vGap16,
+        Container(
+          alignment: Alignment.center,
+          child: GestureDetector(
+            child: Text(
+              '没有账号?快去注册',
+              style: TextStyle(color: Theme.of(context).primaryColor),
+            ),
+            onTap: () => NavigatorUtils.push(context, LoginRouter.registerPage),
+          ),
         )
       ];
 }
