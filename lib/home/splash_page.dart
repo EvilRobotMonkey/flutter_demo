@@ -33,6 +33,7 @@ class _SplashPageState extends State<SplashPage> {
       Provider.of<ThemeProvider>(context, listen: false).syncTheme();
       if (SpUtil.getBool(Constant.keyGuide, defValue: true))
         _guideList.forEach((image) {
+          //预加载 图片
           precacheImage(ImageUtils.getAssetImage(image), context);
         });
       _initSplash();
@@ -114,6 +115,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _goLogin() {
+
     NavigatorUtils.push(context, LoginRouter.loginPage, replace: false);
   }
 }

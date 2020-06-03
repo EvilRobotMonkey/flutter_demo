@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterapp/temp/bloc_provider.dart';
 import 'package:flutterapp/temp/counter_bloc.dart';
 import 'package:provider/provider.dart';
 
@@ -35,17 +36,19 @@ class ShoppingListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Provider<CounterBloc>(
-      dispose: (context, value) => value.dispost(),
-      child: new ListTile(
-      onTap: () {
-        onCartChanged(product, !inCart);
-      },
-      leading: new CircleAvatar(
-        backgroundColor: _getColor(context),
-        child: new Text(product),
-      ),
-      title: new Text(product, style: _getTextStyle(context)),
-    )
-    );
+        dispose: (context, value) => value.dispost(),
+        child: ListTile(
+          onTap: () {
+            onCartChanged(product, !inCart);
+          },
+          leading: new CircleAvatar(
+            backgroundColor: _getColor(context),
+            child: new Text(product),
+          ),
+          title: BlocProvider(
+            blocs: [CounterBloc()],
+            child: Text('hello${BlocProvider.of<CounterBloc>(context)}'),
+          ),
+        ));
   }
 }

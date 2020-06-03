@@ -1,6 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'bloc_base.dart';
 
+/**
+ * BlockProvider 复杂写法
+ * https://www.jianshu.com/p/ff471e41f978
+ * 目的是：其子Widget都能访问BlocProvider的内部数据.
+ */
+
 Type _typeOf<T>() => T;
 
 class BlocProvider<T extends BlocBase> extends StatefulWidget {

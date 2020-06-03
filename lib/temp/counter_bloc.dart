@@ -5,7 +5,6 @@ import 'bloc_base.dart';
 
 class CounterBloc extends BlocBase {
   StreamController<int> _controller = StreamController();
-
   StreamSink get _counter => _controller.sink; //输入
   Stream get counter => _controller.stream; //流出
 
