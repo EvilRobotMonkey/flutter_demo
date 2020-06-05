@@ -37,8 +37,7 @@ class _StoreAuditPageState extends State<StoreAuditPage> {
     try {
       _imageFile = await ImagePicker.pickImage(
           source: ImageSource.gallery, maxWidth: 800, imageQuality: 95);
-
-      print(_imageFile.path);
+      setState(() {});
     } catch (e) {
       Toast.show('没有权限，无法打开相册！');
     }

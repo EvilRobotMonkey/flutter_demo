@@ -7,6 +7,7 @@ import 'package:flutterapp/routers/routers.dart';
 import 'package:flutterapp/utils/Device.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterapp/utils/log_utils.dart';
+import 'package:flutterapp/utils/toast.dart';
 import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
                 darkTheme: provider.getTheme(isDarkMode: true),
                 themeMode: provider.getThemeMode(),
                 home: home ?? SplashPage(),
+
                 onGenerateRoute: Application.router.generator,
                 localizationsDelegates: const [
                   GlobalMaterialLocalizations.delegate,

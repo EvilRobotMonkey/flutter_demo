@@ -20,7 +20,8 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  int _status = 1;
+  int _status = 0;
+
   List<String> _guideList = ['app_start_1', 'app_start_2', 'app_start_3'];
   StreamSubscription _subscription;
 
@@ -36,6 +37,7 @@ class _SplashPageState extends State<SplashPage> {
           //预加载 图片
           precacheImage(ImageUtils.getAssetImage(image), context);
         });
+
       _initSplash();
     });
   }
@@ -97,8 +99,7 @@ class _SplashPageState extends State<SplashPage> {
 
   void _initSplash() {
     print("_initSplash");
-    _subscription =
-        Stream.value(1).delay(Duration(milliseconds: 1500)).listen((_) {
+    _subscription = Stream.value(1).delay(Duration(milliseconds: 1500)).listen((_) {
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();
@@ -115,7 +116,6 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   _goLogin() {
-
     NavigatorUtils.push(context, LoginRouter.loginPage, replace: false);
   }
 }
