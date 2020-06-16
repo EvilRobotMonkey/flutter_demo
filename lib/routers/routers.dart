@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutterapp/home/home_page.dart';
 import 'package:flutterapp/login/login_router.dart';
 import 'package:flutterapp/routers/404.dart';
 import 'package:flutterapp/routers/router_init.dart';
@@ -17,7 +18,8 @@ class Routes {
       debugPrint('未找到目标页');
       return WidgetNotFound();
     });
-    router.define(home, handler: Handler());
+    router.define(home, handler: Handler(
+        handlerFunc: (BuildContext context, Map<String, List<String>> params) => Home()));
 
     router.define(webViewPage, handler: Handler(handlerFunc: (_, params) {
       String title = params['title']?.first;
