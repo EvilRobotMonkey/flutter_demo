@@ -15,8 +15,11 @@ import 'package:provider/provider.dart';
 import 'package:rxdart/rxdart.dart';
 
 class SplashPage extends StatefulWidget {
+
   @override
   State createState() => _SplashPageState();
+
+
 }
 
 class _SplashPageState extends State<SplashPage> {
